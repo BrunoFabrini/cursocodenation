@@ -1,6 +1,7 @@
 package com.br.codenation.aplicacao.controller;
 
 import com.br.codenation.aplicacao.data.EmpresaDTO;
+import com.br.codenation.aplicacao.data.EmpresaMediaSalarialDTO;
 import com.br.codenation.aplicacao.domain.entity.Empresa;
 import com.br.codenation.aplicacao.exception.CodenationException;
 import com.br.codenation.aplicacao.service.EmpresaService;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/empresa")
@@ -86,6 +88,12 @@ public class EmpresaController {
         }
 
         return responseEntity;
+    }
+
+    @GetMapping(value = "/get/mediaSalarial")
+    public List<EmpresaMediaSalarialDTO> getMediaSalarialEmpresas(){
+
+        return empresaService.getMediaSalarialEmpresas();
     }
 
 //
